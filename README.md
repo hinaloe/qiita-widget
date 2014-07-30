@@ -7,14 +7,14 @@ Qiitaの自分の投稿一覧とかをWebサイト内に設置できるやつ。
 
 ```html
 <div data-qiita-widget="widget" data-name="your-url-name"></div>
-<script src="https://raw.githubusercontent.com/kimama1997/qiita-widget/master/dist/qiita-widget-simple.min.js" async="async"></script>
+<script src="https://rawgit.com/kimama1997/qiita-widget/master/dist/qiita-widget-simple.min.js" async="async"></script>
 ```
 
 ### ターゲットをカスタマイズ
 
 ```html
 <div data-name="name" class="qiita-widget"></div>
-<script src="https://raw.githubusercontent.com/kimama1997/qiita-widget/master/dist/qiita-widget.min.js"></script>
+<script src="https://rawgit.com/kimama1997/qiita-widget/master/dist/qiita-widget.min.js"></script>
 <script>
   new ViewQiitaWidget.get(".qiita-widget");
 </script>
