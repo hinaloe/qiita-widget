@@ -1,0 +1,1 @@
+ViewQiitaWidget.get()
