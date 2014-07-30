@@ -14,7 +14,7 @@ Qiitaの自分の投稿一覧とかをWebサイト内に設置できるやつ。
 
 ```html
 <div data-name="name" class="qiita-widget"></div>
-<script src="https://rawgit.com/kimama1997/qiita-widget/master/dist/qiita-widget.min.js"></script>
+<script src="https://rawgit.com/kimama1997/qiita-widget/master/dist/qiita-widget-nowrap.min.js"></script>
 <script>
   ViewQiitaWidget.get(".qiita-widget");
 </script>

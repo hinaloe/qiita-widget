@@ -20,6 +20,13 @@ module.exports = (grunt)->
           sourceMap:true
         files:
           'dist/qiita-widget-simple.js':['src/qiita-widget.coffee','src/simple-doing.coffee']
+      compilenowrap:
+        options:
+          sourceMap:true
+          bare:true
+        files:
+          'dist/qiita-widget-simple-nowrap.js':['src/qiita-widget.coffee','src/simple-doing.coffee']
+          'dist/qiita-widget-nowrap.js': ['src/qiita-widget.coffee']
     uglify:
       build:
         options:
@@ -29,6 +36,8 @@ module.exports = (grunt)->
         files:
           'dist/qiita-widget.min.js': 'dist/qiita-widget.js'
           'dist/qiita-widget-simple.min.js': 'dist/qiita-widget-simple.js'
+          'dist/qiita-widget-simple.min-nowrap.min.js': 'dist/qiita-widget-simple-nowrap.js'
+          'dist/qiita-widget-nowrap.min.js': 'dist/qiita-widget-nowrap.js'
   grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-contrib-watch'
   grunt.loadNpmTasks 'grunt-contrib-uglify'
