@@ -1,0 +1,25 @@
+{
+  "name": "qiita-widget",
+  "version": "0.0.1",
+  "homepage": "https://github.com/kimama1997/qiita-widget",
+  "authors": [
+    "kimama1997 <hina@hinaloe.net>"
+  ],
+  "main": [
+    "dist/qiita-widget-nowrap.js",
+    "dist/qiita-widget-simple.js",
+    "dist/qiita-widget.js",
+    "dist/qiita-widget-nowrap.js"
+  ],
+  "keywords": [
+    "qiita"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
