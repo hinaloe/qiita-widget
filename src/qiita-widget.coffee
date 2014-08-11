@@ -1,9 +1,10 @@
 class ViewQiitaWidget
   constructor: (@selector="[data-qiita-widget]") ->
-    if typeof window.XDomainRequest != "undefined"
-      xhr = XDomainRequest
-    else if typeof window.XMLHttpRequest != "undefined"
+    if typeof window.XMLHttpRequest != "undefined"
       xhr = XMLHttpRequest
+    else if typeof window.XDomainRequest != "undefined"
+      xhr = XDomainRequest
+
   #  else if window.ActiveXObject
   #    xhr = ActiveXObject "Microsoft.XMLHTTP"
     else return

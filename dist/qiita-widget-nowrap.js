@@ -8,10 +8,10 @@ ViewQiitaWidget = (function() {
     var xhr;
     this.selector = selector != null ? selector : "[data-qiita-widget]";
     this.get = __bind(this.get, this);
-    if (typeof window.XDomainRequest !== "undefined") {
-      xhr = XDomainRequest;
-    } else if (typeof window.XMLHttpRequest !== "undefined") {
+    if (typeof window.XMLHttpRequest !== "undefined") {
       xhr = XMLHttpRequest;
+    } else if (typeof window.XDomainRequest !== "undefined") {
+      xhr = XDomainRequest;
     } else {
       return;
     }
