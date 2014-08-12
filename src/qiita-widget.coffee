@@ -31,12 +31,15 @@ class ViewQiitaWidget
     s.appendChild title
     s.appendChild u
     s.className = "qiita-widget"
+    while target.firstChild
+      target.removeChild target.firstChild
     target.appendChild s
 
 
     return
 
   onerror = (e) ->
+    area.textContent = "Error"
     console.error e
     return
   get : =>

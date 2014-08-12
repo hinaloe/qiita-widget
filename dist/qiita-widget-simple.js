@@ -38,10 +38,14 @@
       s.appendChild(title);
       s.appendChild(u);
       s.className = "qiita-widget";
+      while (target.firstChild) {
+        target.removeChild(target.firstChild);
+      }
       target.appendChild(s);
     };
 
     onerror = function(e) {
+      area.textContent = "Error";
       console.error(e);
     };
 
