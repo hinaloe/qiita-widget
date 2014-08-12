@@ -38,10 +38,6 @@ class ViewQiitaWidget
 
     return
 
-  onerror = (e) ->
-    area.textContent = "Error"
-    console.error e
-    return
   get : =>
     area = document.querySelectorAll @selector
     for i in area
@@ -57,7 +53,12 @@ class ViewQiitaWidget
         res = JSON.parse @responseText
         parsepush res,i
         return
-      req.onerror = onerror
+      req.onerror = (e) ->
+        console.log i
+        i.textContent = "Error"
+        console.error e
+        return
+
       req.open "GET","#{urlbase}#{uri}?per_page=#{count}",true
       req.send()
     return

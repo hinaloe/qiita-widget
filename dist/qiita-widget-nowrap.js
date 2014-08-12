@@ -2,7 +2,7 @@ var ViewQiitaWidget,
   __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
 ViewQiitaWidget = (function() {
-  var onerror, parsepush;
+  var parsepush;
 
   function ViewQiitaWidget(selector) {
     var xhr;
@@ -43,11 +43,6 @@ ViewQiitaWidget = (function() {
     target.appendChild(s);
   };
 
-  onerror = function(e) {
-    area.textContent = "Error";
-    console.error(e);
-  };
-
   ViewQiitaWidget.prototype.get = function() {
     var area, count, i, req, screen_name, uri, urlbase, _i, _len;
     area = document.querySelectorAll(this.selector);
@@ -64,7 +59,11 @@ ViewQiitaWidget = (function() {
         res = JSON.parse(this.responseText);
         parsepush(res, i);
       };
-      req.onerror = onerror;
+      req.onerror = function(e) {
+        console.log(i);
+        i.textContent = "Error";
+        console.error(e);
+      };
       req.open("GET", "" + urlbase + uri + "?per_page=" + count, true);
       req.send();
     }
