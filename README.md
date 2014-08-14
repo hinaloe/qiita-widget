@@ -26,7 +26,7 @@ Qiitaの自分の投稿一覧とかをWebサイト内に設置できるやつ。
 ```
 
 ### 対応ブラウザ
- - IE x ←XHRエラー出ててよくわからないけど動かない
+ - IE 10+
  - Chrome 多分最近のなら大丈夫
  - Mozila Firefox   ~~なんでinnerHTMLはあるくせにinnerTextないんだよクソが~~
 
@@ -37,3 +37,8 @@ Qiitaの自分の投稿一覧とかをWebサイト内に設置できるやつ。
  - 返ってくるブロックのトップのdivには`qiita-widget`と言うクラスが付きます。それ以外のクラスはつかず、またスタイリングは一切していないのでCSSは各自追加してください。
  - 使用によるトラブル等に対し一切の責任は取りません。
  - MITライセンスが適用されます。使用の際は自由に変更していただいて構いません。
+
+### @see
+
+ - Qiita: http://qiita.com/kimama1997/items/3b78ffe5a1a0041cf93b  
+ - for WP: https://github.com/kimama1997/Qiita-Widget-wp
