@@ -63,6 +63,7 @@ class ViewQiitaWidget
 
         req.open "GET","#{urlbase}#{uri}?per_page=#{count}",true
         req.send()
+        return
     return
 
   @get = (s) ->
