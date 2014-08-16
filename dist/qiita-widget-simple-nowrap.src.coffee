@@ -40,27 +40,30 @@ class ViewQiitaWidget
 
   get : =>
     area = document.querySelectorAll @selector
-    for i in area
-      screen_name = i.getAttribute("data-name")
-      urlbase = "https://qiita.com"
-      uri = "/api/v1/users/#{screen_name}/items"
-      count = i.getAttribute("data-count") or "10"
-      i.removeAttribute "data-qiita-widget"
+    for n in area
+      do (n) =>
+        i = n
+        screen_name = i.getAttribute("data-name")
+        urlbase = "https://qiita.com"
+        uri = "/api/v1/users/#{screen_name}/items"
+        count = i.getAttribute("data-count") or "10"
+        i.removeAttribute "data-qiita-widget"
 
 
-      req = new @xhr()
-      req.onload = ->
-        res = JSON.parse @responseText
-        parsepush res,i
+        req = new @xhr()
+        req.onload = ->
+          res = JSON.parse @responseText
+          parsepush res,i
+          return
+        req.onerror = (e) ->
+          console.log i
+          i.textContent = "Error"
+          console.error e
+          return
+
+        req.open "GET","#{urlbase}#{uri}?per_page=#{count}",true
+        req.send()
         return
-      req.onerror = (e) ->
-        console.log i
-        i.textContent = "Error"
-        console.error e
-        return
-
-      req.open "GET","#{urlbase}#{uri}?per_page=#{count}",true
-      req.send()
     return
 
   @get = (s) ->

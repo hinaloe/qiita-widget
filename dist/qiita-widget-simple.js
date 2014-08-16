@@ -45,28 +45,35 @@
     };
 
     ViewQiitaWidget.prototype.get = function() {
-      var area, count, i, req, screen_name, uri, urlbase, _i, _len;
+      var area, n, _fn, _i, _len;
       area = document.querySelectorAll(this.selector);
+      _fn = (function(_this) {
+        return function(n) {
+          var count, i, req, screen_name, uri, urlbase;
+          i = n;
+          screen_name = i.getAttribute("data-name");
+          urlbase = "https://qiita.com";
+          uri = "/api/v1/users/" + screen_name + "/items";
+          count = i.getAttribute("data-count") || "10";
+          i.removeAttribute("data-qiita-widget");
+          req = new _this.xhr();
+          req.onload = function() {
+            var res;
+            res = JSON.parse(this.responseText);
+            parsepush(res, i);
+          };
+          req.onerror = function(e) {
+            console.log(i);
+            i.textContent = "Error";
+            console.error(e);
+          };
+          req.open("GET", "" + urlbase + uri + "?per_page=" + count, true);
+          req.send();
+        };
+      })(this);
       for (_i = 0, _len = area.length; _i < _len; _i++) {
-        i = area[_i];
-        screen_name = i.getAttribute("data-name");
-        urlbase = "https://qiita.com";
-        uri = "/api/v1/users/" + screen_name + "/items";
-        count = i.getAttribute("data-count") || "10";
-        i.removeAttribute("data-qiita-widget");
-        req = new this.xhr();
-        req.onload = function() {
-          var res;
-          res = JSON.parse(this.responseText);
-          parsepush(res, i);
-        };
-        req.onerror = function(e) {
-          console.log(i);
-          i.textContent = "Error";
-          console.error(e);
-        };
-        req.open("GET", "" + urlbase + uri + "?per_page=" + count, true);
-        req.send();
+        n = area[_i];
+        _fn(n);
       }
     };
 
