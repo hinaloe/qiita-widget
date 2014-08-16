@@ -38,8 +38,23 @@ module.exports = (grunt)->
           'dist/qiita-widget-simple.min.js': 'dist/qiita-widget-simple.js'
           'dist/qiita-widget-simple.min-nowrap.min.js': 'dist/qiita-widget-simple-nowrap.js'
           'dist/qiita-widget-nowrap.min.js': 'dist/qiita-widget-nowrap.js'
+    bump:
+      options:
+        files:["package.json","bower.json"]
+        commit:true
+        commitMessage: 'Release v%VERSION%'
+        commitFiles: ["package.json","bower.json"]
+        createTag:true
+        tagName: 'v%VERSION%'
+        tagMessage: 'Version %VERSION%'
+        push: true
+        pushTo: "origin"
+
+
   grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-contrib-watch'
   grunt.loadNpmTasks 'grunt-contrib-uglify'
+  grunt.loadNpmTasks 'grunt-bump'
   grunt.registerTask 'default', ['watch']
+  grunt.registerTask 'build',['coffee','uglify']
   return
